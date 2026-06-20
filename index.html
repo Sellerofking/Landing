@@ -6,18 +6,55 @@
 
 <title>AadhaarBAS Setup Guide</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#0f172a;
+background:linear-gradient(135deg,#0f172a,#1e293b,#0f172a);
+min-height:100vh;
 color:#fff;
+overflow-x:hidden;
 padding-bottom:90px;
+}
+
+.bg-blur{
+position:fixed;
+width:400px;
+height:400px;
+background:#2563eb;
+filter:blur(180px);
+opacity:.25;
+top:-100px;
+left:-100px;
+z-index:-1;
+animation:float 8s ease-in-out infinite;
+}
+
+.bg-blur2{
+position:fixed;
+width:350px;
+height:350px;
+background:#06b6d4;
+filter:blur(180px);
+opacity:.25;
+right:-100px;
+bottom:-100px;
+z-index:-1;
+animation:float 10s ease-in-out infinite;
+}
+
+@keyframes float{
+50%{
+transform:translateY(-30px);
+}
 }
 
 .container{
@@ -28,221 +65,242 @@ padding:20px;
 
 .hero{
 text-align:center;
-padding:40px 20px;
+padding:60px 20px 30px;
+animation:fadeUp .8s ease;
 }
 
 .hero h1{
-font-size:38px;
+font-size:42px;
+font-weight:700;
 margin-bottom:15px;
 }
 
 .hero p{
 font-size:18px;
 color:#cbd5e1;
+max-width:700px;
+margin:auto;
 }
 
-.download-top{
-display:inline-block;
-margin-top:20px;
-padding:14px 30px;
-background:#22c55e;
-color:#fff;
-text-decoration:none;
-border-radius:10px;
-font-weight:bold;
+.glass{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.12);
+border-radius:24px;
+padding:25px;
+margin-top:25px;
+box-shadow:0 8px 30px rgba(0,0,0,.25);
+animation:fadeUp 1s ease;
 }
 
-.card{
-background:#1e293b;
-padding:20px;
-margin-top:20px;
-border-radius:15px;
-}
-
-.step-number{
-width:40px;
-height:40px;
-border-radius:50%;
-background:#2563eb;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:bold;
+.section-title{
+font-size:24px;
+font-weight:600;
 margin-bottom:15px;
 }
 
-.card h2{
-margin-bottom:10px;
+.step{
+display:flex;
+align-items:flex-start;
+gap:15px;
+margin-top:20px;
 }
 
-.card p{
-line-height:1.7;
+.step-number{
+min-width:45px;
+height:45px;
+border-radius:50%;
+background:linear-gradient(135deg,#2563eb,#06b6d4);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+font-size:18px;
+}
+
+.step-content h3{
+margin-bottom:8px;
+}
+
+.step-content p{
 color:#dbeafe;
+line-height:1.8;
 }
 
-img{
+.screenshot{
+margin-top:20px;
+overflow:hidden;
+border-radius:18px;
+border:1px solid rgba(255,255,255,.15);
+}
+
+.screenshot img{
 width:100%;
-border-radius:12px;
-margin-top:15px;
+display:block;
+transition:.4s;
 }
 
-.warning{
-background:#7f1d1d;
-padding:15px;
-border-radius:10px;
-margin-top:15px;
+.screenshot img:hover{
+transform:scale(1.03);
 }
 
-.success{
-background:#14532d;
-padding:15px;
-border-radius:10px;
+.notice{
 margin-top:15px;
+padding:15px;
+background:rgba(239,68,68,.15);
+border:1px solid rgba(239,68,68,.3);
+border-radius:15px;
+color:#fecaca;
 }
 
-.faq details{
-background:#1e293b;
-padding:15px;
+.mock-box{
+margin-top:20px;
+padding:20px;
+border-radius:18px;
+background:rgba(37,99,235,.15);
+border:1px solid rgba(37,99,235,.25);
+}
+
+.mock-box ul{
+padding-left:20px;
 margin-top:10px;
-border-radius:10px;
-}
-
-.faq summary{
-cursor:pointer;
-font-weight:bold;
+line-height:2;
 }
 
 .sticky-download{
 position:fixed;
-bottom:0;
-left:0;
-right:0;
-background:#16a34a;
-padding:15px;
-z-index:9999;
-box-shadow:0 -3px 15px rgba(0,0,0,.4);
+left:15px;
+right:15px;
+bottom:15px;
+z-index:999;
 }
 
 .sticky-download a{
 display:block;
 text-align:center;
+padding:18px;
+border-radius:18px;
 text-decoration:none;
-color:#fff;
 font-size:18px;
-font-weight:bold;
+font-weight:700;
+color:#fff;
+background:linear-gradient(135deg,#2563eb,#06b6d4);
+box-shadow:0 10px 30px rgba(37,99,235,.45);
+animation:pulse 2s infinite;
 }
 
-@media(max-width:768px){
-.hero h1{
-font-size:28px;
+@keyframes pulse{
+50%{
+transform:scale(1.02);
 }
 }
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(25px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.badge{
+display:inline-block;
+padding:8px 14px;
+border-radius:30px;
+background:rgba(255,255,255,.1);
+border:1px solid rgba(255,255,255,.12);
+margin-bottom:15px;
+font-size:14px;
+}
+
 </style>
 </head>
 <body>
 
+<div class="bg-blur"></div>
+<div class="bg-blur2"></div>
+
 <div class="container">
 
 <div class="hero">
-<h1>AadhaarBAS Setup Guide</h1>
-
+<div class="badge">Latest AadhaarBAS Setup Guide</div>
+<h1>AadhaarBAS Installation Guide</h1>
 <p>
-Follow the installation steps below to avoid common installation issues.
+Follow these simple steps to install AadhaarBAS without any issues.
 </p>
-
-<a class="download-top" href="YOUR_DOWNLOAD_LINK">
-Download APK
-</a>
 </div>
 
-<div class="card">
+<div class="glass">
+
+<div class="section-title">
+Package Conflict Error Fix
+</div>
+
+<div class="step">
+
 <div class="step-number">1</div>
-<h2>Uninstall Old AadhaarBAS</h2>
+
+<div class="step-content">
+
+<h3>If you see this error</h3>
 
 <p>
-If any old AadhaarBAS version is installed on your device, uninstall it completely before proceeding.
+"App not installed as package conflicts with an existing package"
 </p>
 
-<img src="images/package-conflict.jpg" alt="Package Conflict Error">
-
-<div class="warning">
-Package Conflict Error occurs when an old version already exists on the device.
-</div>
+<div class="screenshot">
+<img src="images/package-conflict.jpg" alt="Package Conflict">
 </div>
 
-<div class="card">
+<div class="notice">
+If this error appears, simply uninstall the old AadhaarBAS app already installed on your device.
+</div>
+
+</div>
+
+</div>
+
+<div class="step">
+
 <div class="step-number">2</div>
-<h2>Install Official AadhaarBAS App</h2>
+
+<div class="step-content">
+
+<h3>Download Again</h3>
 
 <p>
-Download and install the latest official AadhaarBAS application from Play Store.
+After uninstalling the old AadhaarBAS application, download the latest version from this website and install it normally.
 </p>
+
 </div>
 
-<div class="card">
-<div class="step-number">3</div>
-<h2>Enable Mock Location</h2>
-
-<p>
-Developer Options → Select Mock Location App → Choose the required Mock Location application.
-</p>
 </div>
 
-<div class="card">
-<div class="step-number">4</div>
-<h2>Install AadhaarBAS Fix APK</h2>
-
-<p>
-After successful setup, install the provided Fix APK.
-</p>
 </div>
 
-<div class="card">
-<div class="step-number">5</div>
-<h2>More Details → Install Anyway</h2>
+<div class="glass">
 
-<p>
-Some devices may show a security warning during installation.
-</p>
-
-<div class="success">
-Click More Details → Install Anyway → Continue Installation
-</div>
+<div class="section-title">
+Enable Mock Location
 </div>
 
-<div class="card">
-<div class="step-number">6</div>
-<h2>Open AadhaarBAS</h2>
+<div class="mock-box">
 
 <p>
-Grant all permissions, enable location and verify that everything is working properly.
+Before using AadhaarBAS, make sure Mock Location is enabled.
 </p>
+
+<ul>
+<li>Open Developer Options</li>
+<li>Tap Select Mock Location App</li>
+<li>Select your Mock Location App</li>
+<li>Return and open AadhaarBAS</li>
+</ul>
+
 </div>
-
-<div class="faq">
-
-<h2 style="margin-top:30px;">Frequently Asked Questions</h2>
-
-<details>
-<summary>Why am I getting Package Conflict Error?</summary>
-<p>
-An older version with the same package name already exists on your phone.
-</p>
-</details>
-
-<details>
-<summary>App is not installing?</summary>
-<p>
-Remove previous versions and try again.
-</p>
-</details>
-
-<details>
-<summary>Play Protect warning appears?</summary>
-<p>
-Click More Details and then Install Anyway.
-</p>
-</details>
 
 </div>
 
@@ -250,7 +308,7 @@ Click More Details and then Install Anyway.
 
 <div class="sticky-download">
 <a href="YOUR_DOWNLOAD_LINK">
-⬇ Download AadhaarBAS Fix APK
+⬇ Download AadhaarBAS APK
 </a>
 </div>
 
