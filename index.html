@@ -2,109 +2,273 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AadhaarBAS APK</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>AadhaarBAS APK Download</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+--bg:#0f172a;
+--card:rgba(255,255,255,.08);
+--border:rgba(255,255,255,.12);
+--text:#ffffff;
+--muted:#cbd5e1;
+--primary:#2563eb;
+--secondary:#06b6d4;
+}
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Poppins,sans-serif;
+font-family:'Poppins',sans-serif;
+-webkit-tap-highlight-color:transparent;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
-background:#0f172a;
-color:#fff;
-padding:12px;
-padding-bottom:90px;
+background:var(--bg);
+color:var(--text);
 overflow-x:hidden;
+padding-bottom:100px;
 }
 
-.bg{
+/* Animated Background */
+
+.bg1,.bg2{
 position:fixed;
-inset:0;
+border-radius:50%;
+filter:blur(140px);
 z-index:-1;
-background:
-radial-gradient(circle at top left,#2563eb55,transparent 35%),
-radial-gradient(circle at bottom right,#06b6d455,transparent 35%);
 }
+
+.bg1{
+width:350px;
+height:350px;
+background:#2563eb;
+top:-100px;
+left:-100px;
+opacity:.35;
+animation:float1 8s ease-in-out infinite;
+}
+
+.bg2{
+width:350px;
+height:350px;
+background:#06b6d4;
+right:-100px;
+bottom:-100px;
+opacity:.35;
+animation:float2 10s ease-in-out infinite;
+}
+
+@keyframes float1{
+50%{transform:translateY(-40px);}
+}
+
+@keyframes float2{
+50%{transform:translateY(40px);}
+}
+
+/* Layout */
+
+.container{
+max-width:520px;
+margin:auto;
+padding:15px;
+}
+
+/* Hero */
+
+.hero{
+background:var(--card);
+backdrop-filter:blur(20px);
+border:1px solid var(--border);
+border-radius:30px;
+padding:30px 20px;
+text-align:center;
+margin-top:15px;
+animation:fadeUp .8s ease;
+}
+
+.badge{
+display:inline-block;
+padding:8px 16px;
+border-radius:50px;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.1);
+font-size:13px;
+margin-bottom:15px;
+}
+
+.hero h1{
+font-size:32px;
+font-weight:800;
+margin-bottom:10px;
+}
+
+.hero p{
+color:var(--muted);
+line-height:1.7;
+font-size:15px;
+}
+
+.hero-btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 28px;
+border-radius:18px;
+text-decoration:none;
+font-weight:700;
+color:#fff;
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+box-shadow:0 10px 25px rgba(37,99,235,.35);
+position:relative;
+overflow:hidden;
+}
+
+.hero-btn::before{
+content:'';
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.25),
+transparent
+);
+animation:shine 2.5s infinite;
+}
+
+@keyframes shine{
+100%{
+left:120%;
+}
+}
+
+/* Step Cards */
 
 .card{
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,.12);
-border-radius:20px;
-padding:15px;
-max-width:500px;
-margin:auto;
-animation:show .5s ease;
+background:var(--card);
+backdrop-filter:blur(20px);
+border:1px solid var(--border);
+border-radius:24px;
+padding:22px;
+margin-top:18px;
+animation:fadeUp 1s ease;
 }
 
-h1{
-font-size:24px;
-text-align:center;
-margin-bottom:3px;
+.step{
+display:flex;
+gap:15px;
 }
 
-.sub{
-text-align:center;
-font-size:13px;
-color:#cbd5e1;
-margin-bottom:12px;
+.number{
+min-width:50px;
+height:50px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+font-size:18px;
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
+
+.content h2{
+font-size:18px;
+margin-bottom:8px;
+}
+
+.content p{
+font-size:14px;
+line-height:1.8;
+color:var(--muted);
 }
 
 .screenshot{
+margin-top:18px;
 overflow:hidden;
-border-radius:14px;
-margin-bottom:12px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,.12);
 }
 
 .screenshot img{
 width:100%;
 display:block;
+cursor:pointer;
+transition:.4s;
 }
 
-.item{
-display:flex;
-gap:10px;
-padding:10px 0;
+.screenshot img:hover{
+transform:scale(1.03);
+}
+
+.notice{
+margin-top:15px;
+padding:15px;
+border-radius:16px;
+background:rgba(239,68,68,.12);
+border:1px solid rgba(239,68,68,.2);
+color:#fecaca;
 font-size:14px;
-line-height:1.6;
-border-bottom:1px solid rgba(255,255,255,.08);
+line-height:1.7;
 }
 
-.item:last-child{
-border-bottom:none;
+.success{
+margin-top:15px;
+padding:15px;
+border-radius:16px;
+background:rgba(34,197,94,.12);
+border:1px solid rgba(34,197,94,.2);
+color:#bbf7d0;
+font-size:14px;
+line-height:1.7;
 }
 
-.icon{
-font-size:18px;
+ul{
+padding-left:18px;
+margin-top:10px;
 }
+
+li{
+line-height:2;
+color:var(--muted);
+font-size:14px;
+}
+
+/* Sticky Download */
 
 .sticky{
 position:fixed;
-left:10px;
-right:10px;
-bottom:10px;
-z-index:999;
+left:12px;
+right:12px;
+bottom:12px;
+z-index:9999;
 }
 
 .sticky a{
 display:flex;
 align-items:center;
 justify-content:center;
-height:58px;
-border-radius:16px;
+height:62px;
+border-radius:20px;
 text-decoration:none;
+font-size:18px;
 font-weight:700;
-font-size:17px;
 color:#fff;
-background:linear-gradient(135deg,#2563eb,#06b6d4);
-box-shadow:0 10px 25px rgba(37,99,235,.4);
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+backdrop-filter:blur(20px);
+box-shadow:0 12px 30px rgba(37,99,235,.45);
 animation:pulse 2s infinite;
 }
 
@@ -114,10 +278,10 @@ transform:scale(1.02);
 }
 }
 
-@keyframes show{
+@keyframes fadeUp{
 from{
 opacity:0;
-transform:translateY(20px);
+transform:translateY(25px);
 }
 to{
 opacity:1;
@@ -125,56 +289,187 @@ transform:translateY(0);
 }
 }
 
+/* Fullscreen Image */
+
+.preview{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.9);
+z-index:99999;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.preview img{
+max-width:100%;
+max-height:90vh;
+border-radius:12px;
+}
+
+.preview.active{
+display:flex;
+}
+
 </style>
 </head>
 <body>
 
-<div class="bg"></div>
+<div class="bg1"></div>
+<div class="bg2"></div>
+
+<div class="container">
+
+<div class="hero">
+
+<div class="badge">
+Latest AadhaarBAS APK
+</div>
+
+<h1>AadhaarBAS Download</h1>
+
+<p>
+Download the latest AadhaarBAS APK and follow the simple installation guide below.
+</p>
+
+<a href="YOUR_DOWNLOAD_LINK" class="hero-btn">
+⬇ Download APK
+</a>
+
+</div>
+
+<!-- Step 1 -->
 
 <div class="card">
 
-<h1>AadhaarBAS APK</h1>
-<div class="sub">Download & Install Guide</div>
+<div class="step">
+
+<div class="number">1</div>
+
+<div class="content">
+
+<h2>Download APK</h2>
+
+<p>
+Download the latest AadhaarBAS APK using the download button available on this page.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Step 2 -->
+
+<div class="card">
+
+<div class="step">
+
+<div class="number">2</div>
+
+<div class="content">
+
+<h2>Package Conflict Error</h2>
+
+<p>
+If you see the error below while installing the APK:
+</p>
 
 <div class="screenshot">
-<img src="images/package-conflict.jpg" alt="Package Conflict">
+<img src="images/package-conflict.jpg" onclick="zoom(this.src)">
 </div>
 
-<div class="item">
-<div class="icon">⬇️</div>
-<div>
-Download the latest AadhaarBAS APK using the button below.
-</div>
-</div>
-
-<div class="item">
-<div class="icon">❌</div>
-<div>
-If you see <b>"Package Conflicts"</b>, uninstall the old AadhaarBAS app and install again from this website.
-</div>
-</div>
-
-<div class="item">
-<div class="icon">⚠️</div>
-<div>
-If Play Protect appears, tap <b>More Details → Install Anyway</b>.
-</div>
-</div>
-
-<div class="item">
-<div class="icon">📍</div>
-<div>
-Enable <b>Mock Location App</b> from Developer Options before using AadhaarBAS.
-</div>
+<div class="notice">
+⚠️ If this error appears, uninstall the old AadhaarBAS app already installed on your device. Then download the APK again from this website and install it normally.
 </div>
 
 </div>
+
+</div>
+
+</div>
+
+<!-- Step 3 -->
+
+<div class="card">
+
+<div class="step">
+
+<div class="number">3</div>
+
+<div class="content">
+
+<h2>Play Protect Warning</h2>
+
+<p>
+Some devices may show a Play Protect warning during installation.
+</p>
+
+<div class="success">
+✅ Tap <b>More Details</b> → <b>Install Anyway</b> → Continue Installation.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Step 4 -->
+
+<div class="card">
+
+<div class="step">
+
+<div class="number">4</div>
+
+<div class="content">
+
+<h2>Enable Mock Location</h2>
+
+<ul>
+<li>Open Developer Options</li>
+<li>Select Mock Location App</li>
+<li>Choose your Mock Location App</li>
+<li>Open AadhaarBAS</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Sticky Download -->
 
 <div class="sticky">
 <a href="YOUR_DOWNLOAD_LINK">
 ⬇ Download AadhaarBAS APK
 </a>
 </div>
+
+<!-- Image Preview -->
+
+<div class="preview" id="preview" onclick="closePreview()">
+<img id="previewImg">
+</div>
+
+<script>
+
+function zoom(src){
+document.getElementById('previewImg').src=src;
+document.getElementById('preview').classList.add('active');
+}
+
+function closePreview(){
+document.getElementById('preview').classList.remove('active');
+}
+
+</script>
 
 </body>
 </html>
