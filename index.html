@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>AadhaarBAS APK Download</title>
+
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 :root {
@@ -17,6 +21,8 @@
     --secondary: #06b6d4;
     --whatsapp: #25D366;
     --danger: #ef4444;
+    --success: #10b981;
+    --purple: #a855f7;
 }
 
 * {
@@ -62,9 +68,11 @@ body {
     margin-bottom: 20px;
 }
 .hero-icon {
-    font-size: 40px;
-    margin-bottom: 10px;
+    font-size: 42px;
+    color: var(--secondary);
+    margin-bottom: 15px;
     animation: bounce 2s infinite;
+    text-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
 }
 .hero h1 { font-size: 26px; font-weight: 700; }
 .hero p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
@@ -74,7 +82,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     padding: 14px 20px;
     border-radius: 14px;
     text-decoration: none;
@@ -85,6 +93,7 @@ body {
     box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
     transition: transform 0.2s;
 }
+.btn i { font-size: 18px; }
 .btn:active { transform: scale(0.96); }
 
 .btn-wa {
@@ -134,13 +143,28 @@ body {
     font-size: 13px;
     color: #fca5a5;
     display: flex;
+    align-items: flex-start;
     gap: 10px;
 }
+.notice i { font-size: 16px; margin-top: 2px; color: var(--danger); }
 
 /* Lists */
-ul { padding-left: 0; list-style: none; margin-top: 10px; }
-li { font-size: 13px; color: var(--text-muted); line-height: 2; display: flex; align-items: center; gap: 8px; }
-li::before { content: "🔹"; font-size: 10px; }
+ul { padding-left: 0; list-style: none; margin-top: 12px; }
+li { 
+    font-size: 13px; 
+    color: var(--text-muted); 
+    margin-bottom: 10px;
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+li i {
+    color: var(--primary);
+    font-size: 14px;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 4px;
+    border-radius: 50%;
+}
 
 /* Images */
 .screenshot {
@@ -179,24 +203,24 @@ li::before { content: "🔹"; font-size: 10px; }
     
     <!-- Hero Section -->
     <div class="hero">
-        <div class="hero-icon">📦</div>
+        <i class="fa-solid fa-box-open hero-icon"></i>
         <h1>AadhaarBAS APK</h1>
         <p>Download the latest version securely.</p>
         <a href="https://github.com/Sellerofking/Sell/raw/refs/heads/main/AadhaarBAS_10.0791_FullFix.apk" class="btn">
-            ⬇️ Download APK
+            <i class="fa-solid fa-download"></i> Download APK
         </a>
     </div>
 
     <!-- Error Handling -->
     <div class="card">
         <div class="card-header">
-            <div class="icon-box">❌</div>
+            <div class="icon-box"><i class="fa-solid fa-circle-exclamation" style="color: var(--danger);"></i></div>
             <h2>App Not Installing?</h2>
         </div>
         <p>If you face a package conflict error during installation:</p>
         <img src="https://raw.githubusercontent.com/Sellerofking/Landing/refs/heads/main/Screenshot_2026-06-20-07-20-46-614_com.google.android.packageinstaller-edit.jpg" class="screenshot" alt="Error Screenshot">
         <div class="notice">
-            <span>⚠️</span>
+            <i class="fa-solid fa-triangle-exclamation"></i>
             <span>Uninstall the old AadhaarBAS app first, then install this new version.</span>
         </div>
     </div>
@@ -204,7 +228,7 @@ li::before { content: "🔹"; font-size: 10px; }
     <!-- Play Protect -->
     <div class="card">
         <div class="card-header">
-            <div class="icon-box">🛡️</div>
+            <div class="icon-box"><i class="fa-solid fa-shield-halved" style="color: var(--success);"></i></div>
             <h2>Play Protect Warning</h2>
         </div>
         <p>If Google Play Protect blocks the installation, tap <b>More Details</b> and select <b>Install Anyway</b>.</p>
@@ -213,25 +237,25 @@ li::before { content: "🔹"; font-size: 10px; }
     <!-- Mock Location -->
     <div class="card">
         <div class="card-header">
-            <div class="icon-box">📍</div>
+            <div class="icon-box"><i class="fa-solid fa-location-dot" style="color: var(--primary);"></i></div>
             <h2>Mock Location Setup</h2>
         </div>
         <ul>
-            <li>Open device <b>Developer Options</b></li>
-            <li>Find <b>Select Mock Location App</b></li>
-            <li>Choose <b>AadhaarBAS</b> from the list</li>
+            <li><i class="fa-solid fa-check"></i> Open device <b>Developer Options</b></li>
+            <li><i class="fa-solid fa-check"></i> Find <b>Select Mock Location App</b></li>
+            <li><i class="fa-solid fa-check"></i> Choose <b>AadhaarBAS</b> from the list</li>
         </ul>
     </div>
 
     <!-- Support Section -->
     <div class="card">
         <div class="card-header">
-            <div class="icon-box">🎧</div>
+            <div class="icon-box"><i class="fa-solid fa-headset" style="color: var(--purple);"></i></div>
             <h2>Need Support?</h2>
         </div>
         <p style="margin-bottom: 15px;">Facing issues? Chat with us directly.</p>
         <a href="https://wa.me/447846758611" class="btn btn-wa">
-            💬 Message Seller King
+            <i class="fa-brands fa-whatsapp"></i> Message Seller King
         </a>
     </div>
 
@@ -240,7 +264,7 @@ li::before { content: "🔹"; font-size: 10px; }
 <!-- Sticky Download -->
 <div class="sticky">
     <a href="https://github.com/Sellerofking/Sell/raw/refs/heads/main/AadhaarBAS_10.0791_FullFix.apk" class="btn">
-        ⬇️ Download Latest APK
+        <i class="fa-solid fa-download"></i> Download Latest APK
     </a>
 </div>
 
