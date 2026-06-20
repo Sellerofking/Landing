@@ -246,6 +246,56 @@ color:var(--muted);
 font-size:14px;
 }
 
+/* Contact Us Custom CSS */
+.contact-section {
+text-align: center;
+margin-bottom: 25px; /* Extra space before sticky footer */
+}
+
+.contact-section h2 {
+font-size: 22px;
+margin-bottom: 8px;
+}
+
+.contact-section p {
+font-size: 14px;
+color: var(--muted);
+margin-bottom: 18px;
+}
+
+.contact-links {
+display: flex;
+gap: 12px;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.contact-btn {
+display: inline-flex;
+align-items: center;
+padding: 12px 24px;
+border-radius: 14px;
+text-decoration: none;
+font-weight: 600;
+font-size: 14px;
+color: #fff;
+transition: transform 0.3s ease;
+}
+
+.contact-btn:hover {
+transform: translateY(-3px);
+}
+
+.btn-tg {
+background: linear-gradient(135deg, #0088cc, #00aaff);
+box-shadow: 0 8px 20px rgba(0, 136, 204, 0.3);
+}
+
+.btn-mail {
+background: linear-gradient(135deg, #ea4335, #ff6b6b);
+box-shadow: 0 8px 20px rgba(234, 67, 53, 0.3);
+}
+
 /* Sticky Download */
 
 .sticky{
@@ -371,7 +421,7 @@ Download the latest AadhaarBAS APK using the download button available on this p
 
 <div class="content">
 
-<h2>Package Conflict Error</h2>
+<h2>App Not Installing</h2>
 
 <p>
 If you see the error below while installing the APK:
@@ -440,6 +490,18 @@ Some devices may show a Play Protect warning during installation.
 
 </div>
 
+</div>
+
+<!-- Contact Us Section -->
+<div class="card">
+<div class="contact-section">
+<h2>Contact Us</h2>
+<p>Having trouble with installation? Reach out to us!</p>
+<div class="contact-links">
+<a href="https://t.me/YOUR_TELEGRAM_USERNAME" class="contact-btn btn-tg">✈️ Telegram</a>
+<a href="mailto:YOUR_EMAIL@DOMAIN.COM" class="contact-btn btn-mail">📧 Email Us</a>
+</div>
+</div>
 </div>
 
 </div>
