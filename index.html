@@ -19,7 +19,6 @@
     --text-muted: #94a3b8;
     --primary: #3b82f6;
     --secondary: #06b6d4;
-    --whatsapp: #25D366;
     --danger: #ef4444;
     --success: #10b981;
     --purple: #a855f7;
@@ -95,11 +94,6 @@ body {
 }
 .btn i { font-size: 18px; }
 .btn:active { transform: scale(0.96); }
-
-.btn-wa {
-    background: linear-gradient(135deg, #128C7E, var(--whatsapp));
-    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-}
 
 /* Cards */
 .card {
@@ -188,9 +182,74 @@ li i {
     box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
 }
 
+/* Floating Contact Button */
+.floating-contact {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    z-index: 101;
+    display: flex;
+    align-items: center;
+}
+
+.contact-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--purple);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+    text-decoration: none;
+    z-index: 2;
+    animation: pulse-contact 2s infinite;
+}
+
+.contact-tooltip {
+    background: #ffffff;
+    color: #000000;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: absolute;
+    right: 65px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(20px);
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.contact-tooltip.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.contact-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px 0 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent #ffffff;
+}
+
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-contact {
+    0% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(168, 85, 247, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
 }
 </style>
 </head>
@@ -249,18 +308,6 @@ li i {
         </ul>
     </div>
 
-    <!-- Support Section -->
-    <div class="card">
-        <div class="card-header">
-            <div class="icon-box"><i class="fa-solid fa-headset" style="color: var(--purple);"></i></div>
-            <h2>Need Support?</h2>
-        </div>
-        <p style="margin-bottom: 15px;">Facing issues? Chat with us directly.</p>
-        <a href="https://wa.me/447846758611" class="btn btn-wa">
-            <i class="fa-brands fa-whatsapp"></i> Message Seller King
-        </a>
-    </div>
-
 </div>
 
 <!-- Sticky Download -->
@@ -269,6 +316,40 @@ li i {
         <i class="fa-solid fa-download"></i> Download Latest APK
     </a>
 </div>
+
+<!-- Floating Contact Button -->
+<div class="floating-contact">
+    <div class="contact-tooltip" id="contact-tooltip">Any issue?</div>
+    <a href="https://sellerofking.github.io/contact/" class="contact-icon" target="_blank">
+        <i class="fa-solid fa-headset"></i>
+    </a>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const tooltip = document.getElementById("contact-tooltip");
+        
+        // 1st Time: Show immediately when page loads
+        setTimeout(() => {
+            tooltip.classList.add("show");
+        }, 500); // 0.5s delay after page load
+        
+        // Hide it after 3 seconds
+        setTimeout(() => {
+            tooltip.classList.remove("show");
+        }, 3500);
+        
+        // Interval: Show again every 8 seconds
+        setInterval(() => {
+            tooltip.classList.add("show");
+            
+            // Hide it again after 3 seconds of showing
+            setTimeout(() => {
+                tooltip.classList.remove("show");
+            }, 3000);
+        }, 8000); 
+    });
+</script>
 
 </body>
 </html>
